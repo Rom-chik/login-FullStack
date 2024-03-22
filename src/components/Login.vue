@@ -29,6 +29,12 @@ const onButtonClick = (async() => {
     }
 });
 
+const checkConnection = (async () => {
+  console.log("check touched");
+  const response = await axios.get('http://localhost:3000/getUsers');
+  console.log(response);
+});
+
 </script>
 
 <template>
@@ -47,6 +53,9 @@ const onButtonClick = (async() => {
             </div>
             <div>
                 <button @click="onButtonClick()" type="submit" class="border border-black hover:bg-[#F0F0F0] w-[75px] h-[35px]">Submit</button>
+            </div>
+            <div>
+                <button @click="checkConnection()" class="border border-black"> CHECKING CONNECTION Back-end - DB - Front-end</button>
             </div>
         </div>
     </div>

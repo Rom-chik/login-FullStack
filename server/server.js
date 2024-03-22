@@ -1,6 +1,7 @@
 import express from 'express';
 import pool from './db.js';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 const app = express();
 
@@ -15,10 +16,11 @@ app.listen(PORT, () => {
 
 
 app.use(bodyParser.json());
+app.use(cors());
 
 
 //get data from database
-app.get('/getItems', async (req, res) => {
+app.get('/getUsers', async (req, res) => {
     try {
         // Use the pool to execute a query
         const { rows } = await pool.query('SELECT * FROM users');
